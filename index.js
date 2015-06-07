@@ -7,7 +7,7 @@ module.exports = function(filteredModules) {
     var importDeclarationsToRemove;
     var shouldRemoveStack;
 
-    return new babel.Transformer('babel-filter-imports', {
+    return new babel.Transformer('babel-plugin-filter-imports', {
       Program: {
         enter: function() {
           importDeclarationsToRemove = [];

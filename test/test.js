@@ -18,7 +18,7 @@ function testFixture(name, options) {
   });
 }
 
-describe('babel-filter-imports', function() {
+describe('babel-plugin-filter-imports', function() {
   testFixture('default', 'assert');
   testFixture('named', 'assert');
   testFixture('namespace', 'assert');
