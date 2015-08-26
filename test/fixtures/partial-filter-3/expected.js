@@ -1,3 +1,3 @@
 var _assert = require('assert');
 
-var a = _assert;
+_assert.b.ok();

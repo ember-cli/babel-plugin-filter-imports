@@ -1,1 +1,1 @@
-'use strict';
+var _assert = require('assert');

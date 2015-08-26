@@ -11,7 +11,9 @@ function testFixture(name, options) {
 
     var expected = fs.readFileSync(expectedPath).toString();
     var result = babel.transformFileSync(fixturePath, {
-      plugins: [ filterImports(options) ]
+      blacklist: ['strict'],
+      modules: 'commonStrict',
+      plugins: [filterImports(options)]
     });
 
     assert.strictEqual(result.code, expected);
@@ -19,10 +21,14 @@ function testFixture(name, options) {
 }
 
 describe('babel-plugin-filter-imports', function() {
-  testFixture('default', 'assert');
-  testFixture('named', 'assert');
-  testFixture('namespace', 'assert');
-  testFixture('shadowing', 'assert');
-  testFixture('multiple-filters', ['assert', 'cloud']);
-  testFixture('nesting', ['assert']);
+  testFixture('default',   { assert: ['default'] });
+  testFixture('named',     { assert: ['a'] });
+  testFixture('namespace', { assert: ['*'] });
+
+  testFixture('shadowing', { assert: ['default'] });
+  testFixture('nesting',   { assert: ['default'] });
+
+  testFixture('partial-filter-1', { assert: ['default'], cloud: ['default'] });
+  testFixture('partial-filter-2', { assert: ['a', 'c'] });
+  testFixture('partial-filter-3', { assert: ['a', 'c'] });
 });
