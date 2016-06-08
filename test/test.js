@@ -11,9 +11,12 @@ function testFixture(name, options) {
 
     var expected = fs.readFileSync(expectedPath).toString();
     var result = babel.transformFileSync(fixturePath, {
-      blacklist: ['strict'],
-      modules: 'commonStrict',
-      plugins: [filterImports(options)]
+      babelrc: false,
+      plugins: [
+        'transform-es2015-block-scoping',
+        ['transform-es2015-modules-commonjs', { strict: false }],
+        [filterImports, options],
+      ],
     });
 
     assert.strictEqual(result.code, expected);

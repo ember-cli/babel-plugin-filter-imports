@@ -1,11 +1,11 @@
-module.exports = function(filteredImports) {
-  return function(babel) {
-    // A stack of booleans that determine whether an expression statement
-    // should be removed as it is exited. Expression statements are removed
-    // when they contain a reference to a filtered imported.
-    var shouldRemove;
+module.exports = function(babel) {
+  // A stack of booleans that determine whether an expression statement
+  // should be removed as it is exited. Expression statements are removed
+  // when they contain a reference to a filtered imported.
+  var shouldRemove;
 
-    return new babel.Transformer('babel-plugin-filter-imports', {
+  return {
+    visitor: {
       Program: {
         enter: function() {
           shouldRemove = [];
@@ -17,24 +17,26 @@ module.exports = function(filteredImports) {
 
       ExpressionStatement: {
         enter: function() {
-          shouldRemove.push(false);
+          if (shouldRemove) {
+            shouldRemove.push(false);
+          }
         },
-        exit: function() {
-          if (shouldRemove.pop()) {
-            this.dangerouslyRemove();
+        exit: function(path) {
+          if (shouldRemove && shouldRemove.pop()) {
+            path.remove();
           }
         }
       },
 
-      Identifier: function() {
+      Identifier: function(path, state) {
         // Ensure that we're inside of an expression statement.
-        if (shouldRemove.length > 0) {
-          if (referencesFilteredImport(this, filteredImports)) {
+        if (shouldRemove && shouldRemove.length > 0) {
+          if (referencesFilteredImport(path, state.opts)) {
             shouldRemove[shouldRemove.length - 1] = true;
           }
         }
       }
-    });
+    }
   };
 };
 
