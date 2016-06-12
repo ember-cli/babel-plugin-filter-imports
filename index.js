@@ -2,27 +2,16 @@ module.exports = function(babel) {
   // A stack of booleans that determine whether an expression statement
   // should be removed as it is exited. Expression statements are removed
   // when they contain a reference to a filtered imported.
-  var shouldRemove;
+  var shouldRemove = [];
 
   return {
     visitor: {
-      Program: {
-        enter: function() {
-          shouldRemove = [];
-        },
-        exit: function() {
-          shouldRemove = undefined;
-        }
-      },
-
       ExpressionStatement: {
         enter: function() {
-          if (shouldRemove) {
-            shouldRemove.push(false);
-          }
+          shouldRemove.push(false);
         },
         exit: function(path) {
-          if (shouldRemove && shouldRemove.pop()) {
+          if (shouldRemove.pop()) {
             path.remove();
           }
         }
@@ -30,7 +19,7 @@ module.exports = function(babel) {
 
       Identifier: function(path, state) {
         // Ensure that we're inside of an expression statement.
-        if (shouldRemove && shouldRemove.length > 0) {
+        if (shouldRemove.length > 0) {
           if (referencesFilteredImport(path, state.opts)) {
             shouldRemove[shouldRemove.length - 1] = true;
           }
