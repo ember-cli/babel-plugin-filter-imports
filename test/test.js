@@ -13,13 +13,11 @@ function testFixture(name, options) {
     var result = babel.transformFileSync(fixturePath, {
       babelrc: false,
       plugins: [
-        'transform-es2015-block-scoping',
-        ['transform-es2015-modules-commonjs', { strict: false }],
         [filterImports, options],
       ],
     });
 
-    assert.strictEqual(result.code, expected);
+    assert.strictEqual(result.code, expected.trim());
   });
 }
 

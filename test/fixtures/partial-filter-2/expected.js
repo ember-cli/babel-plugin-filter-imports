@@ -1,3 +1,3 @@
-var _assert = require('assert');
+import { a, b, c } from 'assert';
 
-_assert.b.ok();
+b.ok();
