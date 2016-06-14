@@ -1,40 +1,33 @@
-module.exports = function(filteredImports) {
-  return function(babel) {
-    // A stack of booleans that determine whether an expression statement
-    // should be removed as it is exited. Expression statements are removed
-    // when they contain a reference to a filtered imported.
-    var shouldRemove;
-
-    return new babel.Transformer('babel-plugin-filter-imports', {
-      Program: {
-        enter: function() {
-          shouldRemove = [];
-        },
-        exit: function() {
-          shouldRemove = undefined;
-        }
+module.exports = function(babel) {
+  return {
+    visitor: {
+      Program: function(path, state) {
+        // A stack of booleans that determine whether an expression statement
+        // should be removed as it is exited. Expression statements are removed
+        // when they contain a reference to a filtered imported.
+        state.shouldRemove = [];
       },
 
       ExpressionStatement: {
-        enter: function() {
-          shouldRemove.push(false);
+        enter: function(path, state) {
+          state.shouldRemove.push(false);
         },
-        exit: function() {
-          if (shouldRemove.pop()) {
-            this.dangerouslyRemove();
+        exit: function(path, state) {
+          if (state.shouldRemove.pop()) {
+            path.remove();
           }
         }
       },
 
-      Identifier: function() {
+      Identifier: function(path, state) {
         // Ensure that we're inside of an expression statement.
-        if (shouldRemove.length > 0) {
-          if (referencesFilteredImport(this, filteredImports)) {
-            shouldRemove[shouldRemove.length - 1] = true;
+        if (state.shouldRemove.length > 0) {
+          if (referencesFilteredImport(path, state.opts)) {
+            state.shouldRemove[state.shouldRemove.length - 1] = true;
           }
         }
       }
-    });
+    }
   };
 };
 

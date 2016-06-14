@@ -1,8 +1,8 @@
-var _assert = require('assert');
+import a from 'assert';
 
 {
   {
-    var _a = {};
-    _a.ok();
+    let a = {};
+    a.ok();
   }
 }

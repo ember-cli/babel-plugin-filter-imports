@@ -4,20 +4,25 @@ var path = require('path');
 var babel = require('babel-core');
 var filterImports = require('../index');
 
-function testFixture(name, options) {
+function testFixtureWithPlugins(name, plugins) {
   it(name, function () {
     var fixturePath = path.resolve(__dirname, 'fixtures', name, 'fixture.js');
     var expectedPath = path.resolve(__dirname, 'fixtures', name, 'expected.js');
 
     var expected = fs.readFileSync(expectedPath).toString();
     var result = babel.transformFileSync(fixturePath, {
-      blacklist: ['strict'],
-      modules: 'commonStrict',
-      plugins: [filterImports(options)]
+      babelrc: false,
+      plugins: plugins,
     });
 
-    assert.strictEqual(result.code, expected);
+    assert.strictEqual(result.code, expected.trim());
   });
+}
+
+function testFixture(name, options) {
+  testFixtureWithPlugins(name, [
+    [filterImports, options],
+  ]);
 }
 
 describe('babel-plugin-filter-imports', function() {
@@ -31,4 +36,9 @@ describe('babel-plugin-filter-imports', function() {
   testFixture('partial-filter-1', { assert: ['default'], cloud: ['default'] });
   testFixture('partial-filter-2', { assert: ['a', 'c'] });
   testFixture('partial-filter-3', { assert: ['a', 'c'] });
+
+  testFixtureWithPlugins('multiple-instance', [
+    [filterImports, { assert: ['default'] }],
+    [filterImports, { cloud: ['default'] }],
+  ])
 });
