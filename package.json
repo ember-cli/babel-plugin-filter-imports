@@ -3,6 +3,9 @@
   "version": "0.2.0",
   "description": "A babel transform for filtering out imports",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "mocha"
   },
