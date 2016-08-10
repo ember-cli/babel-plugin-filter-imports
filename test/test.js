@@ -31,4 +31,19 @@ describe('babel-plugin-filter-imports', function() {
   testFixture('partial-filter-1', { assert: ['default'], cloud: ['default'] });
   testFixture('partial-filter-2', { assert: ['a', 'c'] });
   testFixture('partial-filter-3', { assert: ['a', 'c'] });
+
+  it('provides a baseDir', function() {
+    var expectedPath = path.join(__dirname, '..');
+
+    var instance = filterImports({ assert: ['default'] });
+
+    assert.equal(instance.baseDir(), expectedPath);
+  });
+
+  it('includes options in `cacheKey`', function() {
+    var first = filterImports({ assert: ['default'] });
+    var second = filterImports({ assert: ['assert'] });
+
+    assert.notEqual(first.cacheKey(), second.cacheKey());
+  });
 });
