@@ -1,5 +1,7 @@
+var stringify = require('json-stable-stringify');
+
 module.exports = function(filteredImports) {
-  return function(babel) {
+  function babelPluginFilterImports(babel) {
     // A stack of booleans that determine whether an expression statement
     // should be removed as it is exited. Expression statements are removed
     // when they contain a reference to a filtered imported.
@@ -36,6 +38,16 @@ module.exports = function(filteredImports) {
       }
     });
   };
+
+  babelPluginFilterImports.baseDir = function() {
+    return __dirname;
+  };
+
+  babelPluginFilterImports.cacheKey = function() {
+    return stringify(filteredImports);
+  };
+
+  return babelPluginFilterImports;
 };
 
 function referencesFilteredImport(identifier, filteredImports) {
