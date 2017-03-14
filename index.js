@@ -43,3 +43,5 @@ function referencesFilteredImport(identifier, filteredImports) {
 
   return false;
 }
+
+module.exports.baseDir = function() { return __dirname; };
