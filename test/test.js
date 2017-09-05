@@ -1,44 +1,59 @@
-var assert = require('assert');
-var fs = require('fs');
-var path = require('path');
-var babel = require('babel-core');
-var filterImports = require('../index');
+import { transformFileSync } from 'babel-core'
+import assert from 'assert'
+import fs from 'fs'
+import { it, describe } from 'mocha'
+import path from 'path'
 
-function testFixtureWithPlugins(name, plugins) {
-  it(name, function () {
-    var fixturePath = path.resolve(__dirname, 'fixtures', name, 'fixture.js');
-    var expectedPath = path.resolve(__dirname, 'fixtures', name, 'expected.js');
+import filterImports from '../src'
 
-    var expected = fs.readFileSync(expectedPath).toString();
-    var result = babel.transformFileSync(fixturePath, {
+const testFixtureWithPlugins = (name, plugins) => {
+  it(name, function() {
+    const fixturePath = path.resolve(__dirname, 'fixtures', name, 'fixture.js')
+    const expectedPath = path.resolve(__dirname, 'fixtures', name, 'expected.js')
+
+    const expected = fs.readFileSync(expectedPath).toString()
+    const result = transformFileSync(fixturePath, {
       babelrc: false,
       plugins: plugins,
-    });
+    })
 
-    assert.strictEqual(result.code, expected.trim());
-  });
+    assert.strictEqual(result.code.trim(), expected.trim())
+  })
 }
 
-function testFixture(name, options) {
+const testFixture = (name, imports, keepImports = false) =>
   testFixtureWithPlugins(name, [
-    [filterImports, options],
-  ]);
-}
+    [
+      filterImports,
+      {
+        imports,
+        keepImports,
+      },
+    ],
+  ])
 
 describe('babel-plugin-filter-imports', function() {
-  testFixture('default',   { assert: ['default'] });
-  testFixture('named',     { assert: ['a'] });
-  testFixture('namespace', { assert: ['*'] });
+  testFixture('default', { assert: ['default'] })
+  testFixture('named', { assert: ['a'] })
+  testFixture('unnamed', { assert: ['assert'] })
+  testFixture('namespace', { assert: ['*'] })
 
-  testFixture('shadowing', { assert: ['default'] });
-  testFixture('nesting',   { assert: ['default'] });
+  testFixture('callback', { assert: ['default'] })
+  testFixture('declaration', { assert: ['default'] })
+  testFixture('declaration-multiple', { assert: ['default'] })
+  testFixture('nesting', { assert: ['default'] })
+  testFixture('mixed', { assert: ['default', 'cloud'] })
+  testFixture('return', { assert: ['default'] })
+  testFixture('shadowing', { assert: ['default'] })
+  testFixture('referencing', { assert: ['default'] })
 
-  testFixture('partial-filter-1', { assert: ['default'], cloud: ['default'] });
-  testFixture('partial-filter-2', { assert: ['a', 'c'] });
-  testFixture('partial-filter-3', { assert: ['a', 'c'] });
+  testFixture('partial-filter-1', { assert: ['default'], cloud: ['default'] })
+  testFixture('partial-filter-2', { assert: ['a', 'c'] })
+  testFixture('partial-filter-3', { assert: ['a', 'c'] })
 
+  testFixture('keep-import', { assert: ['default'] }, true)
   testFixtureWithPlugins('multiple-instance', [
-    [filterImports, { assert: ['default'] }],
-    [filterImports, { cloud: ['default'] }],
+    [filterImports, { imports: { assert: ['default'] } }],
+    [filterImports, { imports: { cloud: ['default'] } }],
   ])
-});
+})

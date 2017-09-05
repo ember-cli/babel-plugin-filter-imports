@@ -1,5 +1,3 @@
-import a from 'assert';
-
 {
   {
     let a = {};

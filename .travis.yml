@@ -1,11 +1,12 @@
 sudo: false
 language: node_js
 node_js:
-  - "0.12"
   - "4"
   - "6"
+  - "8"
 
 deploy:
+  before_deploy: "npm run clean && npm run build"
   provider: npm
   email: stefan.penner+ember-cli@gmail.com
   api_key:
