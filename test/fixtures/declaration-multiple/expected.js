@@ -1,3 +1,3 @@
 import b from 'butter';
 
-b.ok();
+const cloud = b.cloud;

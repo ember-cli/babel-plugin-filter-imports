@@ -1,3 +1,3 @@
-import { a, b, c } from 'assert';
+import { b } from 'assert';
 
 b.ok();

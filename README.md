@@ -13,7 +13,9 @@ Given the `.babelrc`
 ```json
 {
   "plugins": [["filter-imports", {
-    "debugging-tools": [ "warn" ]
+    "imports": {
+      "debugging-tools": [ "warn" ]
+    }
   }]]
 }
 ```
@@ -34,8 +36,6 @@ function join(args, sep) {
 will be transformed to
 
 ```js
-import { warn } from 'debugging-tools';
-
 function join(args, sep) {
   if (arguments.length > 2) {
   }
@@ -45,5 +45,6 @@ function join(args, sep) {
 
 ## Configuration
 
-- `options` `[Object]`: An object whose keys are names of modules.
-- `options[moduleName]` `[String]`: An array of names of imports from `moduleName` to be removed. You can include `'default'` for default export and `'*'` for a namespace export.
+- `options[keepImports]` `[Boolean]`: An flag that indicates imports removal from header.
+- `options[imports]` `[Object]`: An object whose keys are names of modules.
+- `options[imports][moduleName]` `[String]`: An array of names of imports from `moduleName` to be removed. You can include `'default'` for default export and `'*'` for a namespace export.
