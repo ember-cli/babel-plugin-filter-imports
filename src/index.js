@@ -30,3 +30,5 @@ export default () => ({
     },
   },
 })
+
+export const baseDir = () => __dirname
