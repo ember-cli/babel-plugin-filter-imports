@@ -9,6 +9,10 @@ const removeReferences = (path, specifier) => {
   _.forEach(referencePaths, referencePath => {
     const parent = referencePath.findParent(isRemovablePath)
 
+    if (t.isArrowFunctionExpression(parent)) {
+      parent.get('body').remove()
+      return
+    }
     if (t.isVariableDeclarator(parent)) removeReferences(parent, _.get(parent, 'node.id.name'))
     parent.remove()
   })

@@ -10,3 +10,4 @@ export const doom = () => {
   return a.ok();
 }
 export const egg = () => a.ok();
+export const food = () => (a.ok());
