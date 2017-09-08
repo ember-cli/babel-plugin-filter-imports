@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-filter-imports",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A babel transform for filtering out imports",
   "main": "lib/index.js",
   "files": [
