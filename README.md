@@ -1,6 +1,7 @@
 # babel-plugin-filter-imports
 
 [![Build Status](https://travis-ci.org/ember-cli/babel-plugin-filter-imports.svg?branch=master)](https://travis-ci.org/ember-cli/babel-plugin-filter-imports)
+[![npm](https://img.shields.io/npm/v/babel-plugin-filter-imports.svg?style=flat)](https://www.npmjs.com/package/babel-plugin-filter-imports)
 
 *This plugin is for Babel 6. If you need to support Babel 5 use the [v0.2.x](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v0.2.x) branch.*
 
@@ -48,3 +49,29 @@ function join(args, sep) {
 - `options[keepImports]` `[Boolean]`: An flag that indicates imports removal from header.
 - `options[imports]` `[Object]`: An object whose keys are names of modules.
 - `options[imports][moduleName]` `[String]`: An array of names of imports from `moduleName` to be removed. You can include `'default'` for default export and `'*'` for a namespace export.
+
+## Upgrade to `1.x`
+
+There were breaking changes in the plugin configuration, you must update it to work correctly.
+
+##### Before `1.x`
+
+```json
+{
+  "plugins": [["filter-imports", {
+    "debugging-tools": [ "warn" ]
+  }]]
+}
+```
+
+##### After
+
+```json
+{
+  "plugins": [["filter-imports", {
+    "imports": {
+      "debugging-tools": [ "warn" ]
+    }
+  }]]
+}
+```
