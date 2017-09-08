@@ -5,8 +5,9 @@ node_js:
   - "6"
   - "8"
 
+before_deploy: "npm run clean && npm run build"
 deploy:
-  before_deploy: "npm run clean && npm run build"
+  skip_cleanup: true
   provider: npm
   email: stefan.penner+ember-cli@gmail.com
   api_key:
