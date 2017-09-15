@@ -1,5 +1,25 @@
 # Change Log
 
+## [v1.0.3](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v1.0.3) (2017-09-08)
+[Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v1.0.2...v1.0.3)
+
+**Merged pull requests:**
+
+- fix\(remove\): remove only body on `ArrowFunctionExpression` [\#17](https://github.com/ember-cli/babel-plugin-filter-imports/pull/17) ([layershifter](https://github.com/layershifter))
+
+## [v1.0.2](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v1.0.2) (2017-09-08)
+[Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v1.0.1...v1.0.2)
+
+## [v1.0.1](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v1.0.1) (2017-09-08)
+[Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v1.0.0...v1.0.1)
+
+## [v1.0.0](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v1.0.0) (2017-09-08)
+[Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v0.3.1...v1.0.0)
+
+**Merged pull requests:**
+
+- feat\(plugin\): remove references recursively [\#16](https://github.com/ember-cli/babel-plugin-filter-imports/pull/16) ([layershifter](https://github.com/layershifter))
+
 ## [v0.3.1](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v0.3.1) (2017-03-14)
 [Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v0.3.0...v0.3.1)
 
