@@ -1,5 +1,18 @@
 # Change Log
 
+## [v1.0.4](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v1.0.4) (2017-09-27)
+[Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v1.0.3...v1.0.4)
+
+**Closed issues:**
+
+- Cannot find module package.json [\#19](https://github.com/ember-cli/babel-plugin-filter-imports/issues/19)
+
+**Merged pull requests:**
+
+- chore\(package\): update deps, switch to babel-preset-env [\#21](https://github.com/ember-cli/babel-plugin-filter-imports/pull/21) ([layershifter](https://github.com/layershifter))
+- fix\(plugin\): restore CommonJS export [\#20](https://github.com/ember-cli/babel-plugin-filter-imports/pull/20) ([layershifter](https://github.com/layershifter))
+- chore\(package\): update babel-eslint to the latest version [\#18](https://github.com/ember-cli/babel-plugin-filter-imports/pull/18) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v1.0.3](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v1.0.3) (2017-09-08)
 [Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v1.0.2...v1.0.3)
 
