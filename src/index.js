@@ -1,9 +1,10 @@
 import _ from 'lodash'
+import path from 'path'
 
 import getSpecifiersForRemoval from './getSpecifierNames'
 import removeReferences from './removeReferences'
 
-export default () => ({
+module.exports = () => ({
   visitor: {
     ImportDeclaration: (path, { opts }) => {
       const { imports, keepImports = false } = opts
@@ -31,4 +32,6 @@ export default () => ({
   },
 })
 
-export const baseDir = () => __dirname
+// Provide the path to the package's base directory for caching with broccoli
+// Ref: https://github.com/babel/broccoli-babel-transpiler#caching
+module.exports.baseDir = () => path.resolve(__dirname, '..')
