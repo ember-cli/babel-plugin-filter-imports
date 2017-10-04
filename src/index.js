@@ -29,6 +29,34 @@ module.exports = () => ({
 
       _.set(path, 'node.specifiers', _.without(specifiers, ...specifiersForRemoval))
     },
+
+    ExportNamedDeclaration: (path, { opts }) => {
+      // If this is not a direct import/export then it will be handled
+      // by the ImportDeclaration visitor
+      if (path.node.source === null) {
+        if (path.node.declaration === null && _.get(path.node, 'specifiers.length') === 0) {
+          path.remove()
+        }
+
+        return
+      }
+
+      const { imports } = opts
+      const { source, specifiers } = path.node
+      const members = _.get(imports, _.get(source, 'value'))
+
+      const specifiersForRemoval = getSpecifiersForRemoval(members, specifiers)
+
+      if (specifiersForRemoval.length === specifiers.length) {
+        path.remove()
+      } else {
+        _.forEach(path.get('specifiers'), path => {
+          if (specifiersForRemoval.includes(path.node)) {
+            path.remove()
+          }
+        })
+      }
+    },
   },
 })
 
