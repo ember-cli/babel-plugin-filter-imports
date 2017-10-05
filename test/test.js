@@ -41,6 +41,7 @@ describe('babel-plugin-filter-imports', function() {
   testFixture('callback', { assert: ['default'] })
   testFixture('declaration', { assert: ['default'] })
   testFixture('declaration-multiple', { assert: ['default'] })
+  testFixture('nested-calls', { assert: ['a', 'b'] })
   testFixture('nesting', { assert: ['default'] })
   testFixture('mixed', { assert: ['default', 'cloud'] })
   testFixture('return', { assert: ['default'] })
