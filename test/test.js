@@ -57,4 +57,9 @@ describe('babel-plugin-filter-imports', function() {
     [filterImports, { imports: { assert: ['default'] } }],
     [filterImports, { imports: { cloud: ['default'] } }],
   ])
+
+  testFixtureWithPlugins('decorator', [
+    [filterImports, { imports: { assert: ['default'], butter: ['default'] } }],
+    'transform-decorators-legacy',
+  ])
 })
