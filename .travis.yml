@@ -5,6 +5,10 @@ node_js:
   - "6"
   - "8"
 
+script:
+  - npm run lint
+  - npm test
+
 before_deploy: "npm run clean && npm run build"
 deploy:
   skip_cleanup: true
