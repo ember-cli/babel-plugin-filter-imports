@@ -1,11 +1,18 @@
-import d from 'decorate';
+import a from 'assert';
+import b from 'butter';
 
-class Foo {
-  @d
+class Assert {
+  @a
   method() {
+
+  }
+
+  @a
+  @b
+  multiple() {
 
   }
 }
 
-@d
-class Bar {}
+@a
+class Butter {}

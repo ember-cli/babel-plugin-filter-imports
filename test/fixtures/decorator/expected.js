@@ -1,4 +1,6 @@
-let Foo = class Foo {
+let Assert = class Assert {
   method() {}
+
+  multiple() {}
 };
-let Bar = class Bar {};
+let Butter = class Butter {};

@@ -59,7 +59,7 @@ describe('babel-plugin-filter-imports', function() {
   ])
 
   testFixtureWithPlugins('decorator', [
-    [filterImports, { imports: { decorate: ['d'] } }],
+    [filterImports, { imports: { assert: ['default'], butter: ['default'] } }],
     'transform-decorators-legacy',
   ])
 })
