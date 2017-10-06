@@ -63,4 +63,8 @@ describe('babel-plugin-filter-imports', function() {
     [filterImports, { imports: { assert: ['default'], butter: ['default'] } }],
     'transform-decorators-legacy',
   ])
+  testFixtureWithPlugins('export-default', [
+    [filterImports, { imports: { assert: ['default'], butter: ['default'] } }],
+    'babel-plugin-transform-export-extensions',
+  ])
 })
