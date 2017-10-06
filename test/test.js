@@ -42,6 +42,7 @@ describe('babel-plugin-filter-imports', function() {
   testFixture('declaration', { assert: ['default'] })
   testFixture('declaration-multiple', { assert: ['default'] })
   testFixture('export', { assert: ['default', 'b', 'd'] })
+  testFixture('nested-calls', { assert: ['a', 'b'] })
   testFixture('nesting', { assert: ['default'] })
   testFixture('mixed', { assert: ['default', 'cloud'] })
   testFixture('return', { assert: ['default'] })
@@ -56,5 +57,10 @@ describe('babel-plugin-filter-imports', function() {
   testFixtureWithPlugins('multiple-instance', [
     [filterImports, { imports: { assert: ['default'] } }],
     [filterImports, { imports: { cloud: ['default'] } }],
+  ])
+
+  testFixtureWithPlugins('decorator', [
+    [filterImports, { imports: { assert: ['default'], butter: ['default'] } }],
+    'transform-decorators-legacy',
   ])
 })
