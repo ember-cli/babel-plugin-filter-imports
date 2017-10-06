@@ -8,7 +8,6 @@ const removeReferences = (path, specifier) => {
 
   _.forEach(referencePaths, referencePath => {
     const parent = referencePath.findParent(isRemovablePath)
-    if (parent.removed) return
 
     if (parent.removed) return
     if (t.isArrowFunctionExpression(parent)) {
