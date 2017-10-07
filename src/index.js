@@ -1,3 +1,4 @@
+import syntaxDecorators from 'babel-plugin-syntax-decorators'
 import _ from 'lodash'
 import path from 'path'
 
@@ -5,6 +6,8 @@ import getSpecifiersForRemoval from './getSpecifierNames'
 import removeReferences from './removeReferences'
 
 module.exports = () => ({
+  inherits: syntaxDecorators,
+
   visitor: {
     ImportDeclaration: (path, { opts }) => {
       const { imports, keepImports = false } = opts
