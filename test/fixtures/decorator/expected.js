@@ -1,6 +1,7 @@
-let Assert = class Assert {
+class Assert {
   method() {}
 
   multiple() {}
-};
-let Butter = class Butter {};
+}
+
+class Butter {}
