@@ -32,7 +32,7 @@ const testFixture = (name, imports, keepImports = false) =>
     ],
   ])
 
-describe('babel-plugin-filter-imports', function() {
+describe('babel-plugin-filter-imports', () => {
   testFixture('default', { assert: ['default'] })
   testFixture('named', { assert: ['a'] })
   testFixture('unnamed', { assert: ['assert'] })
@@ -42,6 +42,7 @@ describe('babel-plugin-filter-imports', function() {
   testFixture('declaration', { assert: ['default'] })
   testFixture('declaration-multiple', { assert: ['default'] })
   testFixture('export', { assert: ['default', 'b', 'd'] })
+  testFixture('export-default', { assert: ['default'], butter: ['default'], cloud: ['default'] })
   testFixture('export-leftover', { assert: ['default'] })
   testFixture('nested-calls', { assert: ['a', 'b'] })
   testFixture('nesting', { assert: ['default'] })
@@ -63,9 +64,5 @@ describe('babel-plugin-filter-imports', function() {
   testFixtureWithPlugins('decorator', [
     [filterImports, { imports: { assert: ['default'], butter: ['default'] } }],
     'transform-decorators-legacy',
-  ])
-  testFixtureWithPlugins('export-default', [
-    [filterImports, { imports: { assert: ['default'], butter: ['default'] } }],
-    'babel-plugin-transform-export-extensions',
   ])
 })

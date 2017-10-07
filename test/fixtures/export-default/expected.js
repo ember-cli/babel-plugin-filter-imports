@@ -1,0 +1,1 @@
+export doom from 'doom';

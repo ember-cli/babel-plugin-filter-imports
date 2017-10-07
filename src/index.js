@@ -1,3 +1,4 @@
+import syntaxExportExtensions from 'babel-plugin-syntax-export-extensions'
 import _ from 'lodash'
 import path from 'path'
 
@@ -5,6 +6,8 @@ import getSpecifiersForRemoval from './getSpecifierNames'
 import removeReferences from './removeReferences'
 
 module.exports = () => ({
+  inherits: syntaxExportExtensions,
+
   visitor: {
     ImportDeclaration: (path, { opts }) => {
       const { imports, keepImports = false } = opts
@@ -31,31 +34,16 @@ module.exports = () => ({
     },
 
     ExportNamedDeclaration: (path, { opts }) => {
-      // If this is not a direct import/export then it will be handled
-      // by the ImportDeclaration visitor
-      if (path.node.source === null) {
-        if (path.node.declaration === null && _.get(path.node, 'specifiers.length') === 0) {
-          path.remove()
-        }
+      const declaration = _.get(path, 'node.declaration')
 
-        return
-      }
+      // Heads up! Exports that have decrations will be handled
+      // by the ImportDeclaration visitor
+      if (declaration) return
 
       const { imports } = opts
-      const { source, specifiers } = path.node
-      const members = _.get(imports, _.get(source, 'value'))
+      const source = _.get(path, 'node.source.value')
 
-      const specifiersForRemoval = getSpecifiersForRemoval(members, specifiers)
-
-      if (specifiersForRemoval.length === specifiers.length) {
-        path.remove()
-      } else {
-        _.forEach(path.get('specifiers'), path => {
-          if (specifiersForRemoval.includes(path.node)) {
-            path.remove()
-          }
-        })
-      }
+      if (_.has(imports, source)) path.remove()
     },
   },
 })
