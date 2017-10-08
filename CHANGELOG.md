@@ -1,5 +1,19 @@
 # Change Log
 
+## [v1.1.0](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v1.1.0) (2017-10-08)
+[Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v1.0.4...v1.1.0)
+
+**Merged pull requests:**
+
+- chore\(package\): remove useless and update deps [\#29](https://github.com/ember-cli/babel-plugin-filter-imports/pull/29) ([layershifter](https://github.com/layershifter))
+- fix\(plugin\): use `babel-plugin-syntax-decorators` [\#28](https://github.com/ember-cli/babel-plugin-filter-imports/pull/28) ([layershifter](https://github.com/layershifter))
+- chore\(CI\): add lint step [\#27](https://github.com/ember-cli/babel-plugin-filter-imports/pull/27) ([layershifter](https://github.com/layershifter))
+- feat\(export\): Adds support for filtering exports [\#26](https://github.com/ember-cli/babel-plugin-filter-imports/pull/26) ([pzuraq](https://github.com/pzuraq))
+- feat\(plugin\): add support for stripping decorators [\#25](https://github.com/ember-cli/babel-plugin-filter-imports/pull/25) ([pzuraq](https://github.com/pzuraq))
+- fix\(plugin\): fix the case of directly nested call expressions [\#24](https://github.com/ember-cli/babel-plugin-filter-imports/pull/24) ([pzuraq](https://github.com/pzuraq))
+- chore\(package\): update test commands [\#23](https://github.com/ember-cli/babel-plugin-filter-imports/pull/23) ([layershifter](https://github.com/layershifter))
+- chore\(package\): update mocha to version 4.0.0 [\#22](https://github.com/ember-cli/babel-plugin-filter-imports/pull/22) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v1.0.4](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v1.0.4) (2017-09-27)
 [Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v1.0.3...v1.0.4)
 
