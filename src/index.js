@@ -1,4 +1,3 @@
-import syntaxDecorators from 'babel-plugin-syntax-decorators'
 import _ from 'lodash'
 import path from 'path'
 
@@ -6,7 +5,10 @@ import getSpecifiersForRemoval from './getSpecifierNames'
 import removeReferences from './removeReferences'
 
 module.exports = () => ({
-  inherits: syntaxDecorators,
+  manipulateOptions: (opts, parserOptions) => {
+    parserOptions.plugins.push('decorators')
+    parserOptions.plugins.push('exportExtensions')
+  },
 
   visitor: {
     ImportDeclaration: (path, { opts }) => {
@@ -31,6 +33,19 @@ module.exports = () => ({
       }
 
       _.set(path, 'node.specifiers', _.without(specifiers, ...specifiersForRemoval))
+    },
+
+    ExportNamedDeclaration: (path, { opts }) => {
+      const declaration = _.get(path, 'node.declaration')
+
+      // Heads up! Exports that have decrations will be handled
+      // by the ImportDeclaration visitor
+      if (declaration) return
+
+      const { imports } = opts
+      const source = _.get(path, 'node.source.value')
+
+      if (_.has(imports, source)) path.remove()
     },
   },
 })

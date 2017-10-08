@@ -4,6 +4,7 @@ const isRemovablePath = path =>
   t.isArrowFunctionExpression(path) ||
   t.isDecorator(path) ||
   t.isExpressionStatement(path) ||
+  t.isExportSpecifier(path) ||
   t.isReturnStatement(path) ||
   t.isVariableDeclarator(path)
 
