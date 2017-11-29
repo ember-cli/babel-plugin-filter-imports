@@ -5,6 +5,7 @@ const isRemovablePath = path =>
   t.isDecorator(path) ||
   t.isExpressionStatement(path) ||
   t.isExportSpecifier(path) ||
+  t.isExportNamedDeclaration(path) ||
   t.isReturnStatement(path) ||
   t.isVariableDeclarator(path)
 

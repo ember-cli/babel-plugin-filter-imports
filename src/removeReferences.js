@@ -1,7 +1,7 @@
 import * as t from 'babel-types'
 import _ from 'lodash'
 
-import isRemovablePath from './isRemovablePath'
+import findReferenceRemovalPath from './findReferenceRemovalPath'
 import removeExportSpecifier from './removeExportSpecifier'
 
 const removeReferences = (path, specifier) => {
@@ -9,19 +9,20 @@ const removeReferences = (path, specifier) => {
   const { referencePaths } = path.scope.getBinding(specifier)
 
   _.forEach(referencePaths, referencePath => {
-    const parent = referencePath.findParent(isRemovablePath)
+    const removalPath = findReferenceRemovalPath(referencePath)
 
-    if (parent.removed) return
-    if (t.isArrowFunctionExpression(parent)) {
-      parent.get('body').remove()
+    if (removalPath.removed) return
+    if (t.isArrowFunctionExpression(removalPath)) {
+      removalPath.get('body').remove()
       return
     }
-    if (t.isExportSpecifier(parent)) {
-      removeExportSpecifier(parent)
+    if (t.isExportSpecifier(removalPath)) {
+      removeExportSpecifier(removalPath)
       return
     }
-    if (t.isVariableDeclarator(parent)) removeReferences(parent, _.get(parent, 'node.id.name'))
-    parent.remove()
+    if (t.isVariableDeclarator(removalPath))
+      removeReferences(removalPath, _.get(removalPath, 'node.id.name'))
+    removalPath.remove()
   })
 }
 
