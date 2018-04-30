@@ -1,5 +1,37 @@
 # Change Log
 
+## [v2.0.0](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v2.0.0) (2018-04-30)
+[Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v1.1.2...v2.0.0)
+
+**Merged pull requests:**
+
+- chore\(package\): update to Babel 7, drop NodeJS 4, use Yarn [\#39](https://github.com/ember-cli/babel-plugin-filter-imports/pull/39) ([layershifter](https://github.com/layershifter))
+
+## [v1.1.2](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v1.1.2) (2018-04-30)
+[Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v1.1.1...v1.1.2)
+
+**Closed issues:**
+
+- Version 10 of node.js has been released [\#37](https://github.com/ember-cli/babel-plugin-filter-imports/issues/37)
+- An in-range update of eslint is breaking the build 🚨 [\#33](https://github.com/ember-cli/babel-plugin-filter-imports/issues/33)
+
+**Merged pull requests:**
+
+- chore\(package\): update deps and add NodeJS 10 to build matrix [\#38](https://github.com/ember-cli/babel-plugin-filter-imports/pull/38) ([layershifter](https://github.com/layershifter))
+- chore\(package\): update deps [\#36](https://github.com/ember-cli/babel-plugin-filter-imports/pull/36) ([layershifter](https://github.com/layershifter))
+- chore\(package\): update deps [\#34](https://github.com/ember-cli/babel-plugin-filter-imports/pull/34) ([layershifter](https://github.com/layershifter))
+
+## [v1.1.1](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v1.1.1) (2017-11-29)
+[Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v1.1.0...v1.1.1)
+
+**Closed issues:**
+
+- TypeError: Cannot read property 'removed' of null [\#30](https://github.com/ember-cli/babel-plugin-filter-imports/issues/30)
+
+**Merged pull requests:**
+
+- fix\(plugin\): fix remover for ExportNamedDeclaration [\#31](https://github.com/ember-cli/babel-plugin-filter-imports/pull/31) ([layershifter](https://github.com/layershifter))
+
 ## [v1.1.0](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v1.1.0) (2017-10-08)
 [Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v1.0.4...v1.1.0)
 
