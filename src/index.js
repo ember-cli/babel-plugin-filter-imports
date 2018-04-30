@@ -7,7 +7,8 @@ import removeReferences from './removeReferences'
 module.exports = () => ({
   manipulateOptions: (opts, parserOptions) => {
     parserOptions.plugins.push('decorators')
-    parserOptions.plugins.push('exportExtensions')
+    parserOptions.plugins.push('exportDefaultFrom')
+    parserOptions.plugins.push('exportNamespaceFrom')
   },
 
   visitor: {

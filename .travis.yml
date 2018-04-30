@@ -1,16 +1,15 @@
 sudo: false
 language: node_js
 node_js:
-  - "4"
   - "6"
   - "8"
   - "10"
 
 script:
-  - npm run lint
-  - npm test
+  - yarn lint
+  - yarn test
 
-before_deploy: "npm run clean && npm run build"
+before_deploy: "yarn clean && yarn build"
 deploy:
   skip_cleanup: true
   provider: npm

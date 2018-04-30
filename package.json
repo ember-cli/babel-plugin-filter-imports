@@ -12,8 +12,8 @@
     "build": "babel src -d lib",
     "lint": "prettier --list-different \"src/**/*.js\" \"test/test.js\" && eslint \"src/**/*.js\" \"test/test.js\"",
     "lint:fix": "prettier --write \"src/**/*.js\" \"test/test.js\" && eslint --fix \"src/**/*.js\" \"test/test.js\"",
-    "test": "mocha --require babel-register \"test/*.js\"",
-    "test:watch": "npm run test -- --watch --watch-extensions js"
+    "test": "mocha --require @babel/register \"test/*.js\"",
+    "test:watch": "yarn test --watch --watch-extensions js"
   },
   "repository": {
     "type": "git",
@@ -30,15 +30,15 @@
   },
   "homepage": "https://github.com/ember-cli/babel-plugin-filter-imports",
   "dependencies": {
-    "babel-types": "^6.26.0",
+    "@babel/types": "^7.0.0-beta.46",
     "lodash": "^4.17.10"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
+    "@babel/cli": "^7.0.0-beta.46",
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "@babel/register": "^7.0.0-beta.46",
     "babel-eslint": "^8.2.3",
-    "babel-preset-env": "^1.6.1",
-    "babel-register": "^6.26.0",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
