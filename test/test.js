@@ -1,4 +1,4 @@
-import { transformFileSync } from 'babel-core'
+import { transformFileSync } from '@babel/core'
 import assert from 'assert'
 import fs from 'fs'
 import { it, describe } from 'mocha'
@@ -59,7 +59,7 @@ describe('babel-plugin-filter-imports', () => {
 
   testFixture('keep-import', { assert: ['default'] }, true)
   testFixtureWithPlugins('multiple-instance', [
-    [filterImports, { imports: { assert: ['default'] } }],
-    [filterImports, { imports: { cloud: ['default'] } }],
+    [filterImports, { imports: { assert: ['default'] } }, 'assert'],
+    [filterImports, { imports: { cloud: ['default'] } }, 'cloud'],
   ])
 })
