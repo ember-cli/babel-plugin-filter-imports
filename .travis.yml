@@ -8,14 +8,3 @@ node_js:
 script:
   - yarn lint
   - yarn test
-
-before_deploy: "yarn clean && yarn build"
-deploy:
-  skip_cleanup: true
-  provider: npm
-  email: stefan.penner+ember-cli@gmail.com
-  api_key:
-    secure: rmrtO40GvIDrw/bT9XGOuZutnDyZBji8OQAjrLuKST+qRjzn4fBK4eGDtOEDw1wJEOT88G185h7JawIMQ5IqlWeEY/FNXebZ5SmugFKfCB4MyZg7wTmIw6Fac9SbeOBZUIsFXRxVeDF8QyXMmj9OW1q//+6Mx6Rt6q+gofrGsnEzmeA+NaFC4GYMpVhm2gfVrFWsz5SNlgmoLn8JphAH3PW7GIJ9JF5ivJ48ewMorNwfO5zXw7xBjzqFUquNo/H4jAFdEoR59eqvOzE3q2QrJIgzYr0BiDelxbgjBA5WLiUwjb7xtQTNBvaKLaO5kAvnFBIN/rAuXzukwqg7iyYKX7bsizZ3weCIncpyDNZzAObv/st8G87Ygg/+LKNtHuG0SFr4PQcSQ0QP6e8R/r9L2ok0/fBJl0R3UUZPHGGn3VwLqiWPxrumTb9Q1NYGuEoRN2PbNBqp0/zzYiw1HhNjbE2rCxIBY0pYiC9iNEf4g8WFfWQX9Ymtq08Pue4sqPnUnBhvUGZf9p241jgVCh9V+VqwPBQyAPnFTPfiJovjQzfmjgo95SAZbNOee3kGkR56DkOoGRNTwoDGgRDGHBu5Mk5/gUIy05U9BebtmYckWfYO5+dG+c0fa19EGXTjuLDXIlNxq/xX3/u46X4WweuJtiqBIIMauC6IVDp9pAg9Zig=
-  on:
-    tags: true
-    repo: ember-cli/babel-plugin-filter-imports
