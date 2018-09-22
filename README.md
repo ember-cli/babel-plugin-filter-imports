@@ -1,7 +1,7 @@
 # babel-plugin-filter-imports
 
 [![Build Status](https://travis-ci.org/ember-cli/babel-plugin-filter-imports.svg?branch=master)](https://travis-ci.org/ember-cli/babel-plugin-filter-imports)
-[![npm](https://img.shields.io/npm/v/babel-plugin-filter-imports.svg?style=flat)](https://www.npmjs.com/package/babel-plugin-filter-imports)
+[![npm](https://img.shields.io/npm/v/babel-plugin-filter-imports.svg?style=flat)](https://www.npmjs.com/package/babel-plugin-filter-imports) [![Greenkeeper badge](https://badges.greenkeeper.io/ember-cli/babel-plugin-filter-imports.svg)](https://greenkeeper.io/)
 
 This babel plugin is used to removed references to imports within a module. This can be useful for removing debugging statements when doing a production build of your code. It is often used in conjunction with other tools like Uglify that perform dead code elimination.
 
