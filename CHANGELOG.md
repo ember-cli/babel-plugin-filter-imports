@@ -1,5 +1,29 @@
 # Change Log
 
+## [2.0.3](https://github.com/ember-cli/babel-plugin-filter-imports/tree/2.0.3) (2018-09-28)
+[Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/2.0.2...2.0.3)
+
+**Closed issues:**
+
+- An in-range update of babel7 is breaking the build 🚨 [\#44](https://github.com/ember-cli/babel-plugin-filter-imports/issues/44)
+
+**Merged pull requests:**
+
+- chore\(package\): bump all dependencies [\#54](https://github.com/ember-cli/babel-plugin-filter-imports/pull/54) ([layershifter](https://github.com/layershifter))
+- Add Greenkeeper badge 🌴 [\#50](https://github.com/ember-cli/babel-plugin-filter-imports/pull/50) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- build\(deps-dev\): bump prettier from 1.14.2 to 1.14.3 [\#48](https://github.com/ember-cli/babel-plugin-filter-imports/pull/48) ([dependabot[bot]](https://github.com/apps/dependabot))
+- build\(deps\): bump lodash from 4.17.10 to 4.17.11 [\#47](https://github.com/ember-cli/babel-plugin-filter-imports/pull/47) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [2.0.2](https://github.com/ember-cli/babel-plugin-filter-imports/tree/2.0.2) (2018-09-10)
+[Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v2.0.1...2.0.2)
+
+## [v2.0.1](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v2.0.1) (2018-08-31)
+[Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v2.0.0...v2.0.1)
+
+**Merged pull requests:**
+
+- chore\(package\): update to Babel 7 [\#43](https://github.com/ember-cli/babel-plugin-filter-imports/pull/43) ([layershifter](https://github.com/layershifter))
+
 ## [v2.0.0](https://github.com/ember-cli/babel-plugin-filter-imports/tree/v2.0.0) (2018-04-30)
 [Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/v1.1.2...v2.0.0)
 
