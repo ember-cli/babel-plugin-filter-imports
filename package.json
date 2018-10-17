@@ -48,7 +48,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "mocha": "^5.2.0",
     "prettier": "^1.14.3",
-    "release-it": "^7.6.1",
+    "release-it": "^7.6.2",
     "rimraf": "^2.6.2"
   }
 }
