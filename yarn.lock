@@ -4573,9 +4573,9 @@ regjsparser@^0.3.0:
     jsesc "~0.5.0"
 
 release-it@^8.0.0:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/release-it/-/release-it-8.0.1.tgz#49dc02b2b3c2c7ffb4e68a65de347e4b8fc543c2"
-  integrity sha512-6tBZyw7/G56m2J0OuYCwqf/PhQeiJnOraoBXI/A6sH24gAgCBqb3KPsn38qzYNCvF17KcKZQN6o5VzhgfwMQ6w==
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/release-it/-/release-it-8.1.0.tgz#a7eb4b2d80880153a4432a5e1ca9678ea94a6fd9"
+  integrity sha512-pZAZtEKMBHR0CQ0klDaGWKQWWou0bsIFlndxo6CgvTgXq/xFI7prNiyWqY0ksMBVaZX+SXQv3oeVEUZ3eKr73Q==
   dependencies:
     "@octokit/rest" "16.0.1"
     async-retry "1.2.3"
