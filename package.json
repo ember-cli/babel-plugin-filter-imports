@@ -46,7 +46,7 @@
     "eslint": "^5.14.0",
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "mocha": "^5.2.0",
+    "mocha": "^6.0.0",
     "prettier": "^1.16.4",
     "release-it": "^10.1.0",
     "rimraf": "^2.6.2"
