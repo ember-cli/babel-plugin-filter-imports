@@ -6,7 +6,6 @@ import removeReferences from './removeReferences'
 
 module.exports = () => ({
   manipulateOptions: (opts, parserOptions) => {
-    parserOptions.plugins.push(['decorators', { decoratorsBeforeExport: true, legacy: true }])
     parserOptions.plugins.push('exportDefaultFrom')
     parserOptions.plugins.push('exportNamespaceFrom')
   },
