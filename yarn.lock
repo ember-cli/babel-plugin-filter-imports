@@ -3561,10 +3561,10 @@ regjsparser@^0.6.0:
   dependencies:
     jsesc "~0.5.0"
 
-release-it@^11.0.2:
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/release-it/-/release-it-11.0.2.tgz#730c0887ac5b28201e04c16b68a1e3e3a8ee1da8"
-  integrity sha512-HO9v66wIfeCjvZOQ/LahWYhFyinb9NzQopkLo/7tG3k7JUIwhPd2pc3H2bhc/N8HcwKdcsfJMvMMCGaEHo3xPw==
+release-it@^12.0.1:
+  version "12.0.1"
+  resolved "https://registry.yarnpkg.com/release-it/-/release-it-12.0.1.tgz#156e48961bd1a09ffd2a40c41092a451eb111425"
+  integrity sha512-dakhruhvF+hAX4wbDypSCyHAq20IdnfiQ34h8RTwIJIAxJ0E3zqGLGngfhUI3g7qizXyQrROCL7QY+ck24LREQ==
   dependencies:
     "@octokit/rest" "16.25.0"
     async-retry "1.2.3"
