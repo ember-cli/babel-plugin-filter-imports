@@ -8,7 +8,7 @@
     "src"
   ],
   "engines": {
-    "node": "^8"
+    "node": ">=8"
   },
   "scripts": {
     "clean": "rimraf lib",
