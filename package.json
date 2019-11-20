@@ -7,6 +7,9 @@
     "lib",
     "src"
   ],
+  "engines": {
+    "node": "^8"
+  },
   "scripts": {
     "clean": "rimraf lib",
     "build": "babel src -d lib",
@@ -44,7 +47,7 @@
     "@babel/preset-env": "^7.7.1",
     "@babel/register": "^7.7.0",
     "babel-eslint": "^10.0.3",
-    "eslint": "^5.16.0",
+    "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.1",
     "mocha": "^6.2.2",
