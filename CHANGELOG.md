@@ -1,5 +1,11 @@
 # Change Log
 
+## [4.0.0](https://github.com/ember-cli/babel-plugin-filter-imports/tree/4.0.0) (2018-11-20)
+- Drop support of Node 6, Node 8 is required [#255](https://github.com/ember-cli/babel-plugin-filter-imports/issues/#255)
+
+## [3.0.0](https://github.com/ember-cli/babel-plugin-filter-imports/tree/3.0.0) (2018-04-12)
+- Stop adding the `decorators` Babel plugin [#135](https://github.com/ember-cli/babel-plugin-filter-imports/issues/135)
+
 ## [2.0.3](https://github.com/ember-cli/babel-plugin-filter-imports/tree/2.0.3) (2018-09-28)
 [Full Changelog](https://github.com/ember-cli/babel-plugin-filter-imports/compare/2.0.2...2.0.3)
 
