@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/ember-cli/babel-plugin-filter-imports",
   "dependencies": {
-    "@babel/types": "^7.10.4",
+    "@babel/types": "^7.10.5",
     "lodash": "^4.17.19"
   },
   "devDependencies": {
