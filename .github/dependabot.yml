@@ -1,0 +1,44 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    day: wednesday
+    time: "03:00"
+  open-pull-requests-limit: 10
+  versioning-strategy: increase
+  ignore:
+  - dependency-name: "@babel/types"
+    versions:
+    - 7.12.13
+    - 7.13.12
+    - 7.13.17
+  - dependency-name: eslint
+    versions:
+    - 7.18.0
+    - 7.19.0
+    - 7.20.0
+    - 7.21.0
+    - 7.22.0
+    - 7.23.0
+    - 7.24.0
+  - dependency-name: release-it
+    versions:
+    - 14.2.2
+    - 14.3.0
+    - 14.4.0
+    - 14.4.1
+    - 14.5.0
+    - 14.5.1
+  - dependency-name: "@babel/core"
+    versions:
+    - 7.13.14
+  - dependency-name: mocha
+    versions:
+    - 8.2.1
+    - 8.3.0
+    - 8.3.1
+  - dependency-name: "@babel/preset-env"
+    versions:
+    - 7.13.5
