@@ -41,7 +41,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.16",
+    "@babel/cli": "^7.14.3",
     "@babel/core": "^7.14.0",
     "@babel/plugin-proposal-decorators": "^7.13.15",
     "@babel/preset-env": "^7.14.1",
