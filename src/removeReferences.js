@@ -22,7 +22,16 @@ const removeReferences = (path, specifier) => {
     }
     if (t.isVariableDeclarator(removalPath))
       removeReferences(removalPath, _.get(removalPath, 'node.id.name'))
+    
     removalPath.remove()
+    
+    if (t.isDecorator(removalPath)) {
+      let decorators = removalPath.parentPath.node.decorators
+
+      if (decorators && decorators.length === 0) {
+        removalPath.parentPath.node.decorators = undefined
+      }
+    }
   })
 }
 
